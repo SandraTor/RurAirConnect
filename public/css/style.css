@@ -1,0 +1,336 @@
+@import url("components/header.css");
+@import url("components/footer.css");
+@import url("components/nav.css");
+
+/* Variables de color */
+:root {
+  --color-primario: #3498db;     /* Azul río */
+  --color-secundario: #27ae60; /* Verde natural */
+  --color-terciario: #e67e22;   /* Naranja señal */
+  --color-hover: #e65022;
+  --color-fondo: #f8f9fa;      /* Fondo claro */
+  --color-texto: #2c3e50;      /* Gris oscuro */
+}
+
+html{
+  font-size: 16px;
+  position: relative;
+}
+body {
+  position: relative;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+
+
+#header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+#nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9 !important;
+}
+
+#footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-terciario);
+  color: white;
+  text-align: center;
+}
+
+/* CSS para NOTIFICACIONES */
+.notification {
+  position: fixed !important;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  z-index: 99999 !important;
+  max-width: 320px;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Tipos de notificación */
+.notification--success {
+  background-color: #10b981;
+  border-left: 4px solid #059669;
+}
+
+.notification--error {
+  background-color: #ef4444;
+  border-left: 4px solid #dc2626;
+}
+
+.notification--warning {
+  background-color: #f59e0b;
+  border-left: 4px solid #d97706;
+  color: #1f2937;
+}
+
+.notification--info {
+  background-color: #3b82f6;
+  border-left: 4px solid #2563eb;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideOut {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+}
+
+.notification--slide-out {
+  animation: slideOut 0.3s ease-in;
+}
+
+/* Responsive - Móviles */
+@media (max-width: 768px) {
+  .notification {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    max-width: none;
+    min-width: auto;
+    padding: 16px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    /* Centrado para móviles */
+    transform: translateX(0);
+    animation: slideInMobile 0.3s ease-out;
+  }
+  
+  @keyframes slideInMobile {
+    from { 
+      transform: translateY(-100%); 
+      opacity: 0; 
+    }
+    to { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes slideOutMobile {
+    from { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+    to { 
+      transform: translateY(-100%); 
+      opacity: 0; 
+    }
+  }
+  
+  .notification--slide-out {
+    animation: slideOutMobile 0.3s ease-in;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .notification {
+    font-size: 15px;
+    padding: 14px 18px;
+  }
+}
+
+/* Hero de inicio */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  padding-top: 8vh;
+  background: url("../data/images/Hero-RurAirConnect.jpeg") center/cover no-repeat;
+  background-blend-mode: multiply;
+  background-position: center bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* capa oscura para mejorar contraste */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 1rem;
+}
+
+.hero-content h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 4rem;
+}
+
+.cta-btn {
+  background: var(--color-secundario);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: var(--color-hover);
+}
+
+/* Intro */
+.intro {
+  padding: 3rem 1rem;
+  background: var(--color-fondo);
+}
+
+.intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.intro h2 {
+  color: var(--color-primario);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.intro p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+/* Sección de características */
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-primario);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+  border-radius: 2px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 3rem;
+}
+
+.features-section {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.03) 0%, rgba(52, 152, 219, 0.03) 100%);
+  padding: 3rem 2rem;
+}
+
+.features-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--color-primario);
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.feature-text {
+  color: var(--color-texto);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .about-section,
+  .features-section {
+    padding: 2rem 1rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem 1rem;
+  }
+}
