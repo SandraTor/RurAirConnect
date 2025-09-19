@@ -1,0 +1,86 @@
+.header-nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-terciario);
+}
+
+header {
+  background: var(--color-primario);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+header div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido del div verticalmente */
+  height: 100%;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+header h2 {
+  visibility: visible;
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  font-weight: 500;
+  height: auto;
+  transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease;
+  will-change: opacity, visibility, height;
+}
+
+header img {
+  margin: 0.5rem;
+  height: 5rem; /* similar al tamaño de fuente */
+  width: auto; /* mantiene la proporción */
+  border-radius: 0.7rem; /* esquinas redondeadas */
+  background-color: white; /* fondo si es transparente */
+  object-fit: contain;
+}
+
+/* Estilos para header compacto */
+header.compact {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header.compact img {
+  height: 3rem; /* Logo más pequeño */
+  margin: 0.5rem;
+}
+
+header.compact h1 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+header.compact h2 {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+/* Asegurar que el contenedor div también mantenga la alineación */
+header.compact div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Transición suave simple */
+header, header img, header h1, header h2 {
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,282 @@
+html, body {
+  height: 100dvh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+#map {
+  flex: 1 0 auto; /* Allow map to take the remaining space */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative; /* Ensure map is the reference point */
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: flex-start; /* Align items to the top */
+}
+#layerControl {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 5px;
+  z-index: 2000;
+  pointer-events: auto;
+}
+
+/* Legend styles */
+.legend {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  margin-right: 0 !important;
+  background: white !important; /* FONDO BLANCO ASEGURADO */
+  padding: 12px 30px 8px 25px; /* Padding lateral aumentado para las etiquetas */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 14px;
+  color: #222;
+  z-index: 1100;
+  min-width: 140px;
+}
+.legend-title {
+  margin-bottom: 6px;
+}
+.legend-gradient-bar {
+  margin-bottom: 4px;
+}
+.legend-gradient-container {
+  width: 150px;
+  position: relative;
+  margin: 4px auto 0 auto; /* Centrar horizontalmente */
+}
+
+.legend-gradient-canvas {
+  display: block;
+  width: 150px;
+  height: 16px;
+  margin-bottom: 6px;
+}
+
+.legend-line-wrapper {
+  position: relative;
+  width: 100%;
+  height: 10px;
+}
+
+.legend-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transform: translateY(-50%);
+}
+
+.legend-tick {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 10px;
+  background-color: #333;
+  transform: translateX(-0.5px);
+}
+
+/* Etiquetas min/max en el mismo contenedor que la línea */
+.legend-minmax-left {
+  position: absolute;
+  right: 100%; /* Posicionar fuera del extremo izquierdo */
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 4px; /* Espacio entre etiqueta y gradiente */
+}
+
+.legend-minmax-right {
+  position: absolute;
+  left: 100%; /* Posicionar fuera del extremo derecho */
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 4px; /* Espacio entre etiqueta y gradiente */
+}
+
+.legend-minmax-left,
+.legend-minmax-right {
+  font-size: clamp(9px, 2.5vw, 11px);
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+  max-width: 20vw; /* no permitir que se extienda más del 20% del viewport */
+}
+
+.legend-labels {
+  position: relative;
+  height: 18px;
+  margin-bottom: 4px;
+}
+
+.legend-label {
+  position: absolute;
+  transform: translateX(-100%) rotate(-45deg);
+  transform-origin: right;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* Navegación movil */
+@media (max-width: 600px) {
+  .legend,
+  .legend-gradient {
+    bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.refreshLayersBtn{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  color: #333;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.refreshLayersBtn:hover {
+  background: #f0f0f0;
+  color: #222;
+}
+
+/* Cluster (puntos solapados) styles */
+.custom-cluster {
+  border-radius: 50%;
+  border: 2px solid #333;
+  text-align: center;
+  color: #222;
+  font-weight: bold;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  line-height: 40px;
+}
+.custom-cluster.small { width: 20px; height: 20px; font-size: 12px; }
+.custom-cluster.medium { width: 20px; height: 20px; font-size: 12px; }
+.custom-cluster.large { width: 20px; height: 20px; font-size: 12px; }
+.custom-cluster div {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+}
+
+/* CORRECCIÓN PARA MÓVIL */
+@media (max-width: 600px) {
+  .legend {
+    left: auto;
+    right: 10px;
+    bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+    max-width: 50vw;
+    min-width: 120px;
+    padding: 8px 12px 6px 12px;
+    font-size: clamp(10px, 3vw, 12px);
+    padding-right: 8vw; /* espacio extra a la derecha para evitar corte */
+    padding-left: 4vw;
+  }
+
+  .legend-title {
+    font-size: clamp(11px, 3.5vw, 13px);
+    margin-bottom: 4px;
+  }
+
+  .legend-gradient-container {
+    max-width: 90vw;
+    width: min(90vw, 300px); /* prevent overflow but allow flexibility */
+    position: relative;
+    margin: 2px auto 0 auto; /* centrar horizontalmente */
+  }
+
+  .legend-gradient-canvas {
+    height: 14px;
+    width: 100% !important;
+    margin-bottom: 4px;
+  }
+
+  .legend-line-wrapper {
+    width: 100%;
+    height: 10px;
+  }
+
+  .legend-line {
+    height: 2px;
+  }
+
+  .legend-tick {
+    height: 10px;
+  }
+
+  .legend-labels {
+    height: 16px;
+    margin-bottom: 2px;
+    width: 100%;
+  }
+
+  .legend-label {
+    font-size: clamp(9px, 2.5vw, 11px);
+    transform: translateX(-100%) rotate(-45deg);
+    transform-origin: right;
+    white-space: nowrap;
+  }
+
+  .legend-minmax-left,
+  .legend-minmax-right {
+    font-size: clamp(9px, 2.5vw, 11px);
+    white-space: nowrap;
+    max-width: 24vw;
+  }
+
+  #layerControl {
+    max-width: calc(100vw - 20px);
+    right: 10px;
+    left: auto;
+  }
+}
+
+.leaflet-container,
+.leaflet-control-container,
+.leaflet-pane,
+.leaflet-tile-pane,
+.leaflet-overlay-pane,
+.leaflet-shadow-pane,
+.leaflet-marker-pane,
+.leaflet-tooltip-pane,
+.leaflet-popup-pane,
+.leaflet-map-pane,
+.leaflet-objects-pane,
+.leaflet-control,
+.leaflet-control-zoom,
+.leaflet-control-layers,
+.leaflet-control-attribution,
+.leaflet-bar,
+.leaflet-bar a {
+  z-index: 1 !important;
+}
+
+#map,
+#map * {
+  z-index: 1 !important;
+}
+
+/* EXCEPCIÓN: Permitir que layerControl y legend estén por encima del mapa */
+#layerControl,
+#layerControl *,
+.legend,
+.legend * {
+  z-index: 1000 !important;
+}
