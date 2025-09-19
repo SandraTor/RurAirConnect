@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RurAirConnect</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/resultados.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <!-- Luxon -->
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+  <!-- Adaptador Chart.js para Luxon -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon"></script> 
+</head>
+<body>
+  <div class="header-nav-sticky">
+    <div id="header"></div>
+    <div id="nav"></div>
+  </div>
+
+  <div class="content">
+    <main class="dashboard-main">
+      <!-- Data Type Toggle -->
+      <div class="data-type-toggle">
+        <div class="toggle-option">
+          <input type="radio" id="signal-toggle" name="dataType" value="signal" class="toggle-input" checked>
+          <label for="signal-toggle" class="toggle-label">
+            📡 Cobertura y Señal
+          </label>
+        </div>
+        <div class="toggle-option">
+          <input type="radio" id="pollution-toggle" name="dataType" value="pollution" class="toggle-input">
+          <label for="pollution-toggle" class="toggle-label">
+            🌿 Contaminación Ambiental
+          </label>
+        </div>
+      </div>
+
+      <!-- Signal Filters -->
+      <section id="signal-filters" class="filters-section active">
+        <h2>Filtros para Datos de Señal</h2>
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label for="signal-type">Tipo de Señal</label>
+            <select id="signal-type">
+              <option value="">Cargando...</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="signal-days">Período de Análisis</label>
+            <select id="signal-days">
+              <option value="">Sin límite temporal</option>
+              <option value="7">Última semana</option>
+              <option value="30">Último mes</option>
+              <option value="90">Últimos 3 meses</option>
+              <option value="365">Último año</option>
+            </select>
+          </div>
+        </div>
+        <button id="load-signal-data" class="load-button">📊 Cargar Datos de Señal</button>
+      </section>
+
+      <!-- Pollution Filters -->
+      <section id="pollution-filters" class="filters-section">
+        <h2>Filtros para Datos de Contaminación</h2>
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label for="pollutant-type">Contaminante</label>
+            <select id="pollutant-type">
+              <option value="">Cargando...</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="pollution-months">Período de Análisis</label>
+            <select id="pollution-months">
+              <option value="1">1 mes</option>
+              <option value="3" selected>3 meses</option>
+              <option value="6">6 meses</option>
+              <option value="12">1 año</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="time-grouping">Agrupación Temporal</label>
+            <select id="time-grouping">
+              <option value="day" selected>Por día</option>
+              <option value="week">Por semana</option>
+              <option value="month">Por mes</option>
+            </select>
+          </div>
+        </div>
+        <button id="load-pollution-data" class="load-button">🌿 Cargar Datos de Contaminación</button>
+      </section>
+
+      <!-- Charts Section -->
+      <section id="charts-section" class="charts-section">
+        <div id="charts-container"></div>
+      </section>
+    </main>
+  </div>
+  <div id="footer"></div>
+  <!-- Scripts plantilla base -->
+  <script src="js/main.js"></script>
+  <script src="js/components/menu-toggle.js"></script>
+   <!-- Script resultados-->
+  <script type="module" src="js/resultados.js"></script>
+</body>
+</html>

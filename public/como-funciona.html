@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Cómo funciona? - RurAirConnect</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/como-funciona.css" />
+</head>
+<body>
+  <div class="header-nav-sticky">
+    <div id="header"></div>
+    <div id="nav"></div>
+  </div>
+
+  <main>
+    <!-- Introducción -->
+    <section class="intro-section">
+      <h1>¿Cómo Tomar las Medidas?</h1>
+      <p>
+        En esta guía encontrarás instrucciones detalladas para recopilar datos de conectividad móvil y contaminación ambiental. 
+        Cada sección incluye pasos específicos para diferentes dispositivos y herramientas de medición.
+      </p>
+    </section>
+
+    <!-- Contenido con acordeones -->
+    <div class="instructions-container">
+      
+      <!-- Sección 1: Señal 4G/5G -->
+      <div class="accordion-section">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>📶 Medición de Intensidad de Señal 4G/5G</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p>
+              La intensidad de señal móvil se mide en dBm (decibelios-milivatios).
+              Valores más cercanos a 0 indican mejor señal. Por ejemplo: -70 dBm es excelente, -120 dBm indica que casi no tienes cobertura.<br>
+              <br>  
+              Antes de comenzar, comprueba que tienes el <strong>Wi-Fi desactivado y la ubicación encendida</strong>.<br>
+
+              <strong>Obligatoriamente, en el cuestionario se va a preguntar por la intensidad de señal 4G</strong>, siendo 5G opcional.
+            </p>
+
+            <!-- Sub-acordeón Android -->
+            <div class="sub-accordion">
+              <div class="sub-accordion-header" onclick="toggleSubAccordion(this)">
+                <span>🤖 Dispositivos Android</span>
+                <span class="accordion-icon">▼</span>
+              </div>
+              <div class="sub-accordion-content">
+                <div class="sub-accordion-inner">
+                  
+                  <h4>1. Activar/Desactivar 5G</h4>
+                  <ul class="step-list">
+                    <li><span class="step-number">•</span> Ir a <strong>Ajustes → Conexiones → Redes móviles</strong></li>
+                    <li><span class="step-number">•</span> Seleccionar <strong>Modo de red</strong></li>
+                    <li><span class="step-number">•</span> Elegir entre "5G/4G/3G/2G" o "4G/3G/2G" según el tipo de señal que estés midiendo</li>
+                    <li><span class="step-number">•</span> Comprobar que en la barra de estado aparece el icono de las barras de señal con el tipo de señal que quieres medir</li>
+                  </ul>
+
+                  <h4>2. Encontrar valores en Ajustes del sistema</h4>
+                  <ul class="step-list">
+                    <li><span class="step-number">•</span> Abrir <strong>Ajustes → Acerca del teléfono</strong></li>
+                    <li><span class="step-number">•</span> Información de estado → <strong>Estado de la tarjeta SIM</strong></li>
+                    <li><span class="step-number">•</span> Buscar Intensidad de la señal, es un número negativo con <strong>dBm</strong> como unidad de medida</li>
+                    <li><span class="step-number">•</span> Puede ser que aparezca como RSRP
+                    <li><strong>Importante: </strong>Puede cambiar según tu modelo de móvil, si no lo encuentras prueba a buscar "Señal" o "Intensidad" en la búsqueda de ajustes.</li>
+                  </ul>
+
+                  <h4>3. Aplicaciones recomendadas</h4>
+                  <ul class="step-list">
+                    En la Google App Store hay aplicaciones que permiten conocer el valor de la intensidad de señal y más parámetros. 
+                    <li><span class="step-number">•</span> <a href="https://play.google.com/store/apps/details?id=com.wilysis.cellinfolite&hl=es_419&pli=1" class="app-link">Network Cell Info Lite</a> - Gratuita, datos básicos</li>
+                    <li><span class="step-number">•</span> <a href="https://play.google.com/store/apps/details?id=cz.mroczis.netmonster&hl=es_419" class="app-link">NetMonster</a> - Interfaz simple, muchos datos técnicos.</li>
+                    <li><span class="step-number">•</span> <a href="https://play.google.com/store/apps/details?id=com.cls.networkwidget&hl=es_419" class="app-link">Signal Strength</a> - Interfaz simple, permite medir latencia (tiempo que tarda en llegar la respuesta desde que mandas una señal por Internet)</li>
+                    <li><span class="step-number">•</span> <a href="https://play.google.com/store/apps/details?id=com.parizene.netmonitor&hl=es_419" class="app-link">NetMonitor</a> - Interfaz simple, muchos datos técnicos y mapa con torres de telefonía.</li>
+                  </ul>
+
+                  <div class="warning-box">
+                    <h4>⚠️ Importante</h4>
+                    <p>Anota el valor RSRP (Reference Signal Received Power) en dBm. Es el más preciso para 4G/5G.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-acordeón iPhone -->
+            <div class="sub-accordion">
+              <div class="sub-accordion-header" onclick="toggleSubAccordion(this)">
+                <span>🍎 Dispositivos iPhone</span>
+                <span class="accordion-icon">▼</span>
+              </div>
+              <div class="sub-accordion-content">
+                <div class="sub-accordion-inner">
+                  
+                  <h4>1. Activar/Desactivar 5G</h4>
+                  <ul class="step-list">
+                    <li><span class="step-number">•</span> Ir a <strong>Ajustes → Datos móviles → Opciones de datos móviles</strong></li>
+                    <li><span class="step-number">•</span> Seleccionar <strong>Voz y datos</strong></li>
+                    <li><span class="step-number">•</span> Elegir entre "5G Activado", "5G Automático" o "4G"</li>
+                  </ul>
+
+                  <h4>2. Acceder al Field Test Mode</h4>
+                  <ul class="step-list">
+                    <li><span class="step-number">•</span> Abrir la app <strong>Teléfono</strong></li>
+                    <li><span class="step-number">•</span> Marcar <strong>*3001#12345#*</strong> y presionar llamar</li>
+                    <li><span class="step-number">•</span> Se abrirá el modo Field Test</li>
+                    <li><span class="step-number">•</span> Buscar "Serving Cell Measurements" o "LTE"</li>
+                    <li><span class="step-number">•</span> Anotar el valor "rsrp0" (en dBm)</li>
+                  </ul>
+
+                  <div class="warning-box">
+                    <h4>📱 Versiones iOS</h4>
+                    <p>En iOS 14+ el Field Test puede tener una interfaz diferente. Busca secciones como "NR" para 5G o "LTE" para 4G.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección 2: Contaminantes -->
+      <div class="accordion-section">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>🌱 Medición de Contaminantes Ambientales</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            
+            <h3>1. Metodología de Medición</h3>
+            <p>
+              Las mediciones ambientales deben realizarse siguiendo protocolos estandarizados para garantizar 
+              la comparabilidad de los datos.
+            </p>
+            
+            <ul class="step-list">
+              <li><span class="step-number">•</span> <strong>Calibración:</strong> Enciende el medidor y espera unos minutos a que los sensores empiecen a funcionar</li>
+              <li><span class="step-number">•</span> <strong>Ubicación:</strong> Al aire libre, alejado de fuentes directas de contaminación</li>
+              <li><span class="step-number">•</span> <strong>Altura:</strong> Entre 1 y  1.5 metros del suelo</li>
+              <li><span class="step-number">•</span> <strong>Condiciones:</strong> Evitar días con lluvia intensa o viento extremo</li>
+            </ul>
+
+            <h3>2. Equipos de Medición Recomendados</h3>
+            <p>
+              Muchos de estos dispositivos se popularizaron durante la pandemia de COVID-19 y ahora 
+              son accesibles para uso ciudadano.
+            </p>
+
+            <h4>Medidores de CO₂</h4>
+            <ul class="step-list">
+              <li><span class="step-number">•</span> <strong>NDIR CO₂ Meters:</strong> Los más precisos (ej: Aranet4, CO2Mini)</li>
+              <li><span class="step-number">•</span> <strong>Rango recomendado:</strong> 0-5000 ppm mínimo</li>
+              <li><span class="step-number">•</span> <strong>Precio aproximado:</strong> 80-200€</li>
+            </ul>
+
+            <h4>Medidores Multifunción</h4>
+            <ul class="step-list">
+              <li><span class="step-number">•</span> <strong>Dispositivos que miden varios parámetros:</strong> CO₂, CO, PM2.5, PM10, temperatura, humedad</li>
+              <li><span class="step-number">•</span> <strong>Ejemplos:</strong> Kaiterra Laser Egg, Awair Element</li>
+              <li><span class="step-number">•</span> <strong>Precio aproximado:</strong> 30-100€</li>
+            </ul>
+
+            <h3>3. Unidades de Medida y Conversiones</h3>
+            
+            <table class="unit-table">
+              <thead>
+                <tr>
+                  <th>Contaminante</th>
+                  <th>Unidad Solicitada</th>
+                  <th>Unidades Alternativas</th>
+                  <th>Factor de Conversión</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CO₂</td>
+                  <td>ppm</td>
+                  <td>mg/m³</td>
+                  <td>1 ppm = 1.96 mg/m³</td>
+                </tr>
+                <tr>
+                  <td>PM2.5</td>
+                  <td>μg/m³</td>
+                  <td>mg/m³</td>
+                  <td>1 mg/m³ = 1000 μg/m³</td>
+                </tr>
+                <tr>
+                  <td>PM10</td>
+                  <td>μg/m³</td>
+                  <td>mg/m³</td>
+                  <td>1 mg/m³ = 1000 μg/m³</td>
+                </tr>
+                <tr>
+                  <td>NO₂</td>
+                  <td>μg/m³</td>
+                  <td>ppb</td>
+                  <td>1 ppb = 1.88 μg/m³</td>
+                </tr>
+                <tr>
+                  <td>O₃</td>
+                  <td>μg/m³</td>
+                  <td>ppb</td>
+                  <td>1 ppb = 2.00 μg/m³</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="warning-box">
+              <h4>🔬 Calibración Importante</h4>
+              <p>
+                Los sensores de bajo coste pueden requerir calibración periódica. 
+                Compara ocasionalmente tus medidas con estaciones oficiales cercanas.
+              </p>
+            </div>
+
+            <h4>Herramientas de Conversión Online</h4>
+            <ul class="step-list">
+              <li><span class="step-number">•</span> <a href="#" class="app-link">EPA Air Quality Calculator</a></li>
+              <li><span class="step-number">•</span> <a href="#" class="app-link">Unit Converter (pollution)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <!-- Scripts plantilla base -->
+  <script src="js/main.js"></script>
+  <script src="js/components/menu-toggle.js"></script>
+  
+  <script>
+    // Funciones para acordeones
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.accordion-icon');
+      
+      // Cerrar otros acordeones principales
+      document.querySelectorAll('.accordion-header').forEach(h => {
+        if (h !== header) {
+          h.classList.remove('active');
+          h.nextElementSibling.classList.remove('active');
+          h.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle actual
+      header.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+
+    function toggleSubAccordion(header) {
+      const content = header.nextElementSibling;
+      
+      header.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+
+    // Abrir primer acordeón por defecto
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        const firstAccordion = document.querySelector('.accordion-header');
+        if (firstAccordion) {
+          toggleAccordion(firstAccordion);
+        }
+      }, 500);
+    });
+  </script>
+</body>
+</html>

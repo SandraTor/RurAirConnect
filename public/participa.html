@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RurAirConnect</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/participa.css" />
+</head>
+<body>
+  <div class="header-nav-sticky">
+    <div id="header"></div>
+    <div id="nav"></div>
+  </div>
+  <div class="form-container">
+        <div class="form-header">
+            <h2>Formulario de recogida de datos</h2>
+        </div>
+        <div class="form-wrapper" id="formWrapper">
+            <div class="loading" id="loadingSpinner">
+                <div class="spinner"></div>
+                <span>Cargando formulario...</span>
+            </div>
+            
+            <iframe 
+                class="google-form" 
+                id="googleForm"
+                src="https://script.google.com/macros/s/AKfycbzUzIgIHeQG-7n848_Fi9ZDiI55BAgQP-y2N-Lsrpz530Hgx7GkronIb_psvrkKra7nKw/exec?action=preload"
+                sandbox="allow-scripts allow-same-origin allow-forms"
+                allow="geolocation"
+                onload="hideLoading()"
+                onerror="showError()">
+                Cargando…
+            </iframe>
+        </div>
+    </div>
+  
+  </div>
+  <div id="footer"></div>
+  <!-- Scripts plantilla base -->
+  <script src="js/main.js"></script>
+  <script src="js/components/menu-toggle.js"></script>
+  <script src="js/participa.js"></script>
+
+</body>
+</html>

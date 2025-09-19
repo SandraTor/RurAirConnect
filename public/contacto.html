@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RurAirConnect</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
+</head>
+<body>
+  <div class="header-nav-sticky">
+    <div id="header"></div>
+    <div id="nav"></div>
+  </div>
+
+  <div id="form">
+   <main>
+  <section class="contacto">
+    <h2>Contáctanos</h2>
+    <form id="contact-form" method="POST" action="/api/contacto.php" novalidate>
+      <div class="campo">
+        <label for="nombre">Nombre *</label>
+        <input type="text" id="nombre" name="nombre" required minlength="2" />
+        <small class="error"></small>
+      </div>
+
+      <div class="campo">
+        <label for="apellidos">Apellidos *</label>
+        <input type="text" id="apellidos" name="apellidos" required minlength="2" />
+        <small class="error"></small>
+      </div>
+
+      <div class="campo">
+        <label for="email">Correo electrónico *</label>
+        <input type="email" id="email" name="email" required />
+        <small class="error"></small>
+      </div>
+
+      <div class="campo">
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required minlength="10"></textarea>
+        <small class="error"></small>
+      </div>
+
+      <!-- hCaptcha -->
+      <div class="campo">
+        <div class="h-captcha" data-sitekey="ca9025ce-aa02-42b0-8a0a-b254f4027f2a"></div>
+        <small class="error" id="captcha-error" style="display:none;color:red;"></small>
+      </div>
+
+      <div class="boton-enviar">
+        <button type="submit" id="btn-enviar">Enviar mensaje</button>
+      </div>
+
+      <div id="mensaje-exito" style="display: none; margin-top: 1rem; color: green; text-align: center;">
+        ¡Gracias por contactarnos! Tu mensaje ha sido enviado.
+      </div>
+    </form>
+  </section>
+</main>
+
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script src="js/contact-form.js"></script></div>
+<div id="footer"></div>
+<!-- Scripts plantilla base -->
+<script src="js/main.js"></script>
+<script src="js/components/menu-toggle.js"></script>
+
+</body>
+</html>
